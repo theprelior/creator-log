@@ -155,11 +155,11 @@ class EventsCog(commands.Cog):
         if log_channel:
             embed = None
             if before.channel is None and after.channel is not None:
-                embed = discord.Embed(title="🔊 Joined Voice Channel", description=f"{member.mention} joined the voice channel **{after.channel.name}**.", color=discord.Color.blue(), timestamp=datetime.utcnow())
+                embed = discord.Embed(title="🔊 Joined Voice Channel", description=f"{member.display_name} joined the voice channel **{after.channel.name}**.", color=discord.Color.blue(), timestamp=datetime.utcnow())
             elif before.channel is not None and after.channel is None:
-                embed = discord.Embed(title="🔇 Left Voice Channel", description=f"{member.mention} left the voice channel **{before.channel.name}**.", color=discord.Color.dark_orange(), timestamp=datetime.utcnow())
+                embed = discord.Embed(title="🔇 Left Voice Channel", description=f"{member.display_name} left the voice channel **{before.channel.name}**.", color=discord.Color.dark_orange(), timestamp=datetime.utcnow())
             else:
-                embed = discord.Embed(title="🔁 Switched Voice Channel", description=f"{member.mention} switched voice channels.", color=discord.Color.purple(), timestamp=datetime.utcnow())
+                embed = discord.Embed(title="🔁 Switched Voice Channel", description=f"{member.display_name} switched voice channels.", color=discord.Color.purple(), timestamp=datetime.utcnow())
                 embed.add_field(name="From Channel", value=before.channel.name, inline=False)
                 embed.add_field(name="To Channel", value=after.channel.name, inline=False)
             
