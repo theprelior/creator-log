@@ -111,7 +111,7 @@ class EventsCog(commands.Cog):
         if not welcome_channel_id: return
         channel = self.bot.get_channel(welcome_channel_id)
         if channel:
-            embed = discord.Embed(title="📥 Welcome to the Server!", description=f"Welcome, {member.mention}! We're happy to have you.", color=discord.Color.green(), timestamp=datetime.utcnow())
+            embed = discord.Embed(title="📥 Welcome to the Server!", description=f"Welcome, {member.display_name}! We're happy to have you.", color=discord.Color.green(), timestamp=datetime.utcnow())
             if member.avatar: embed.set_thumbnail(url=member.avatar.url)
             embed.set_footer(text=f"{member.guild.name} • Total Members: {member.guild.member_count}")
             await channel.send(embed=embed)
